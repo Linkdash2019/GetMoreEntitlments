@@ -1,3 +1,5 @@
+Warning: This is a potentually unuseable fork! Use at your own risk.
+
 # Get More Ram
 A simple AltSign wrapper app that allows you to enable "Increased Memory Limit" for your sideloaded apps without using Xcode.
 
