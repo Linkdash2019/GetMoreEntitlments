@@ -23,6 +23,14 @@ struct AppIDEditView : View {
             }
             
             Section {
+                Button {
+                    Task { await addPushNotifications() }
+                } label: {
+                    Text("Add Push Notifications")
+                }
+            }
+            
+            Section {
                 Text(viewModel.result)
                     .font(.system(.subheadline, design: .monospaced))
             } header: {
@@ -42,6 +50,16 @@ struct AppIDEditView : View {
     func addIncreasedMemoryLimit() async {
         do {
             try await viewModel.addIncreasedMemory()
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+
+    }
+    
+    func addPushNotifications() async {
+        do {
+            try await viewModel.addPushNotifications()
         } catch {
             errorInfo = error.localizedDescription
             errorShow = true
