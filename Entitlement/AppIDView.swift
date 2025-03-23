@@ -20,6 +20,8 @@ struct AppIDEditView : View {
                 } label: {
                     Text("Add Increased Memory Limit")
                 }
+            } header: {
+                Text("Free Developer Account")
             }
             
             Section {
@@ -28,6 +30,8 @@ struct AppIDEditView : View {
                 } label: {
                     Text("Add Push Notifications")
                 }
+            } header: {
+                Text("Paid Developer Account")
             }
             
             Section {
@@ -47,9 +51,7 @@ struct AppIDEditView : View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    header: {
-                Text("Free Developer Account")
-            }
+
     
     func addIncreasedMemoryLimit() async {
         do {
@@ -61,10 +63,6 @@ struct AppIDEditView : View {
 
     }
 
-    header: {
-                Text("Paid Developer Account")
-            }
-    
     func addPushNotifications() async {
         do {
             try await viewModel.addPushNotifications()
