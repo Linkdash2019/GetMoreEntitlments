@@ -46,6 +46,10 @@ struct AppIDEditView : View {
         .navigationTitle(viewModel.bundleID)
         .navigationBarTitleDisplayMode(.inline)
     }
+
+    header: {
+                Text("Free Developer Account")
+            }
     
     func addIncreasedMemoryLimit() async {
         do {
@@ -56,6 +60,10 @@ struct AppIDEditView : View {
         }
 
     }
+
+    header: {
+                Text("Paid Developer Account")
+            }
     
     func addPushNotifications() async {
         do {
