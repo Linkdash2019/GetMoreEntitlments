@@ -55,7 +55,7 @@ struct AppIDEditView : View {
     
     func addIncreasedMemoryLimit() async {
         do {
-            try await viewModel.addEntitlement("entitlement: INCREASED_MEMORY_LIMIT")
+            try await viewModel.addEntitlement(entitlement: "INCREASED_MEMORY_LIMIT")
         } catch {
             errorInfo = error.localizedDescription
             errorShow = true
@@ -65,7 +65,7 @@ struct AppIDEditView : View {
 
     func addPushNotifications() async {
         do {
-            try await viewModel.addEntitlement("entitlement: PUSH_NOTIFICATIONS")
+            try await viewModel.addEntitlement(entitlement: "PUSH_NOTIFICATIONS")
         } catch {
             errorInfo = error.localizedDescription
             errorShow = true
