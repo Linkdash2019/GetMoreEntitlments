@@ -103,7 +103,7 @@ class AppIDModel : ObservableObject, Hashable {
         
     }
 
-    func addEntitlement(entitlement: string) async throws{
+    func addEntitlement(entitlement: String) async throws{
         guard let team = DataManager.shared.model.team, let session = DataManager.shared.model.session else {
             throw "Please Login First"
         }
