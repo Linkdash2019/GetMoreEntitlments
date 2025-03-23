@@ -132,7 +132,7 @@ class AppIDModel : ObservableObject, Hashable {
         var request = URLRequest(url: URL(string: "https://developerservices2.apple.com/services/v1/bundleIds/\(appID.identifier)")!)
         request.httpMethod = "PATCH"
         request.allHTTPHeaderFields = httpHeaders
-        request.httpBody = "{\"data\":{\"relationships\":{\"bundleIdCapabilities\":{\"data\":[{\"relationships\":{\"capability\":{\"data\":{\"id\":\""+entitlement+"",\"type\":\"capabilities\"}}},\"type\":\"bundleIdCapabilities\",\"attributes\":{\"settings\":[],\"enabled\":true}}]}},\"id\":\"\(appID.identifier)\",\"attributes\":{\"hasExclusiveManagedCapabilities\":false,\"teamId\":\"\(team.identifier)\",\"bundleType\":\"bundle\",\"identifier\":\"\(appID.bundleIdentifier)\",\"seedId\":\"\(team.identifier)\",\"name\":\"\(appID.name)\"},\"type\":\"bundleIds\"}}".data(using: .utf8)
+        request.httpBody = "{\"data\":{\"relationships\":{\"bundleIdCapabilities\":{\"data\":[{\"relationships\":{\"capability\":{\"data\":{\"id\":\""+entitlement+"\",\"type\":\"capabilities\"}}},\"type\":\"bundleIdCapabilities\",\"attributes\":{\"settings\":[],\"enabled\":true}}]}},\"id\":\"\(appID.identifier)\",\"attributes\":{\"hasExclusiveManagedCapabilities\":false,\"teamId\":\"\(team.identifier)\",\"bundleType\":\"bundle\",\"identifier\":\"\(appID.bundleIdentifier)\",\"seedId\":\"\(team.identifier)\",\"name\":\"\(appID.name)\"},\"type\":\"bundleIds\"}}".data(using: .utf8)
         
         let (data, _) = try await URLSession.shared.data(for: request)
         
