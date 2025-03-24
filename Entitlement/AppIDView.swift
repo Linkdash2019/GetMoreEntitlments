@@ -33,6 +33,40 @@ struct AppIDEditView : View {
             } header: {
                 Text("Paid Developer Account")
             }
+
+            Section {
+                Button {
+                    Task { await addIAP() }
+                } label: {
+                    Text("IN_APP_PURCHASE")
+                }
+
+                Button {
+                    Task { await addGC() }
+                } label: {
+                    Text("GAME_CENTER")
+                }
+
+                Button {
+                    Task { await addWallet() }
+                } label: {
+                    Text("WALLET")
+                }
+
+                Button {
+                    Task { await addIAA() }
+                } label: {
+                    Text("INTER_APP_AUDIO")
+                }
+                
+                Button {
+                    Task { await addMaps() }
+                } label: {
+                    Text("MAPS")
+                }
+            } header: {
+                Text("Untested")
+            }
             
             Section {
                 Text(viewModel.result)
@@ -66,6 +100,56 @@ struct AppIDEditView : View {
     func addPushNotifications() async {
         do {
             try await viewModel.addEntitlement(entitlement: "PUSH_NOTIFICATIONS")
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+
+    }
+
+    func addIAP() async {
+        do {
+            try await viewModel.addEntitlement(entitlement: "IN_APP_PURCHASE")
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+
+    }
+
+    func addGC() async {
+        do {
+            try await viewModel.addEntitlement(entitlement: "GAME_CENTER")
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+
+    }
+
+    func addWallet() async {
+        do {
+            try await viewModel.addEntitlement(entitlement: "WALLET")
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+
+    }
+
+    func addIAA() async {
+        do {
+            try await viewModel.addEntitlement(entitlement: "INTER_APP_AUDIO")
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+
+    }
+
+    func addMaps() async {
+        do {
+            try await viewModel.addEntitlement(entitlement: "Maps")
         } catch {
             errorInfo = error.localizedDescription
             errorShow = true
