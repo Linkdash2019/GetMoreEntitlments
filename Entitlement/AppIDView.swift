@@ -20,6 +20,18 @@ struct AppIDEditView : View {
                 } label: {
                     Text("Add Increased Memory Limit")
                 }
+
+                Button {
+                    Task { await addGC() }
+                } label: {
+                    Text("GAME_CENTER")
+                }
+
+                Button {
+                    Task { await addIAA() }
+                } label: {
+                    Text("INTER_APP_AUDIO")
+                }
             } header: {
                 Text("Free Developer Account")
             }
@@ -30,21 +42,11 @@ struct AppIDEditView : View {
                 } label: {
                     Text("Add Push Notifications")
                 }
-            } header: {
-                Text("Paid Developer Account")
-            }
-
-            Section {
-                Button {
+                
+                 Button {
                     Task { await addIAP() }
                 } label: {
                     Text("IN_APP_PURCHASE")
-                }
-
-                Button {
-                    Task { await addGC() }
-                } label: {
-                    Text("GAME_CENTER")
                 }
 
                 Button {
@@ -52,13 +54,11 @@ struct AppIDEditView : View {
                 } label: {
                     Text("WALLET")
                 }
+            } header: {
+                Text("Paid Developer Account")
+            }
 
-                Button {
-                    Task { await addIAA() }
-                } label: {
-                    Text("INTER_APP_AUDIO")
-                }
-                
+            Section {        
                 Button {
                     Task { await addMaps() }
                 } label: {
