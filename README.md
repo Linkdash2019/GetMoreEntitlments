@@ -1,5 +1,10 @@
 Warning: This is a potentually unuseable fork! Use at your own risk.
 
+ # Get More Entitlements
+ A fork of Get More Ram that adds more buttons for more entitlements found at https://developer.apple.com/documentation/appstoreconnectapi/certificatetype and https://developer.apple.com/documentation/appstoreconnectapi/capabilitytype
+
+OG readme:
+
 # Get More Ram
 A simple AltSign wrapper app that allows you to enable "Increased Memory Limit" for your sideloaded apps without using Xcode.
 
