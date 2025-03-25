@@ -13,7 +13,7 @@ jobs:
     name: Build using xcodebuild command
     runs-on: macos-latest
     env:
-      scheme: GetMoreEntitlements
+      scheme: Entitlement
       archive_path: archive
     outputs:
       scheme: ${{ steps.scheme.outputs.scheme }}
