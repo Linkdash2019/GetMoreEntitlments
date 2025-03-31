@@ -20,6 +20,52 @@ struct AppIDEditView : View {
                 } label: {
                     Text("Add Increased Memory Limit")
                 }
+
+                Button {
+                    Task { await addGC() }
+                } label: {
+                    Text("GAME_CENTER")
+                }
+
+                Button {
+                    Task { await addIAA() }
+                } label: {
+                    Text("INTER_APP_AUDIO")
+                }
+            } header: {
+                Text("Free Developer Account")
+            }
+            
+            Section {
+                Button {
+                    Task { await addPushNotifications() }
+                } label: {
+                    Text("Add Push Notifications")
+                }
+                
+                 Button {
+                    Task { await addIAP() }
+                } label: {
+                    Text("IN_APP_PURCHASE")
+                }
+
+                Button {
+                    Task { await addWallet() }
+                } label: {
+                    Text("WALLET")
+                }
+            } header: {
+                Text("Paid Developer Account")
+            }
+
+            Section {        
+                Button {
+                    Task { await addMaps() }
+                } label: {
+                    Text("MAPS")
+                }
+            } header: {
+                Text("Untested")
             }
             
             Section {
@@ -42,6 +88,66 @@ struct AppIDEditView : View {
     func addIncreasedMemoryLimit() async {
         do {
             try await viewModel.addIncreasedMemory()
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+
+    }
+
+    func addPushNotifications() async {
+        do {
+            try await viewModel.addEntitlement(entitlement: "PUSH_NOTIFICATIONS")
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+
+    }
+
+    func addIAP() async {
+        do {
+            try await viewModel.addEntitlement(entitlement: "IN_APP_PURCHASE")
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+
+    }
+
+    func addGC() async {
+        do {
+            try await viewModel.addEntitlement(entitlement: "GAME_CENTER")
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+
+    }
+
+    func addWallet() async {
+        do {
+            try await viewModel.addEntitlement(entitlement: "WALLET")
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+
+    }
+
+    func addIAA() async {
+        do {
+            try await viewModel.addEntitlement(entitlement: "INTER_APP_AUDIO")
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+
+    }
+
+    func addMaps() async {
+        do {
+            try await viewModel.addEntitlement(entitlement: "Maps")
         } catch {
             errorInfo = error.localizedDescription
             errorShow = true
