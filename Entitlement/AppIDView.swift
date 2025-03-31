@@ -64,6 +64,12 @@ struct AppIDEditView : View {
                 } label: {
                     Text("MAPS")
                 }
+
+                Button {
+                    Task { await addNetworkExtensions() }
+                } label: {
+                    Text("NETWORK_EXTENSIONS")
+                }
             } header: {
                 Text("Untested")
             }
@@ -147,12 +153,20 @@ struct AppIDEditView : View {
 
     func addMaps() async {
         do {
-            try await viewModel.addEntitlement(entitlement: "Maps")
+            try await viewModel.addEntitlement(entitlement: "MAPS")
         } catch {
             errorInfo = error.localizedDescription
             errorShow = true
-        }
+        }        
+    }
 
+    func addNetworkExtensions() async {
+        do {
+            try await viewModel.addEntitlement(entitlement: "NETWORK_EXTENSIONS")
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }        
     }
 }
 
