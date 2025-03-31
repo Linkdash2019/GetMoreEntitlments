@@ -87,7 +87,7 @@ struct AppIDEditView : View {
     
     func addIncreasedMemoryLimit() async {
         do {
-            try await viewModel.addIncreasedMemory()
+            try await viewModel.addEntitlement(entitlement: "INCREASED_MEMORY_LIMIT")
         } catch {
             errorInfo = error.localizedDescription
             errorShow = true
