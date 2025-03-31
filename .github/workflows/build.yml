@@ -2,6 +2,7 @@ name: Xcode - Build
 
 on: 
   pull_request:
+  push:
   workflow_dispatch:
     inputs: 
       release__nightly:
